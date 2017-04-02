@@ -1,4 +1,4 @@
-package com.lorelib.jvm;
+package com.lorelib.java.jvm;
 
 /**
  * 步骤：
