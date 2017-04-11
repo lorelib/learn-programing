@@ -32,12 +32,13 @@ public class LongEventMain {
         LongEventProducer producer = new LongEventProducer(ringBuffer);
         ByteBuffer bb = ByteBuffer.allocate(8);
         long start = System.currentTimeMillis();
-        for (long l = 0; l < 100; l++) {
+        for (long l = 0; l < 1000; l++) {
             bb.putLong(0, l);
             producer.onData(bb);
-            Thread.sleep(1000);
         }
         long end = System.currentTimeMillis();
-        System.out.println(end - start);
+        Thread.sleep(10000);
+        System.out.println("run time: " + (end - start));
+        disruptor.shutdown();
     }
 }
