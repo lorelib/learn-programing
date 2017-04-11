@@ -18,7 +18,7 @@ public class LongEventMain {
         ThreadFactory threadFactory = Executors.privilegedThreadFactory();
         LongEventFactory factory = new LongEventFactory();
         int bufferSize = 1024;
-        Disruptor<LongEvent> disruptor = new Disruptor<LongEvent>(factory, bufferSize, Executors.privilegedThreadFactory());
+        Disruptor<LongEvent> disruptor = new Disruptor<LongEvent>(factory, bufferSize, threadFactory);
         /*Disruptor<LongEvent> disruptor = new Disruptor<LongEvent>(
                 factory,
                 bufferSize,
