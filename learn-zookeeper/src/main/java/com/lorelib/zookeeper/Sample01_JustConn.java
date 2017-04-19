@@ -9,14 +9,14 @@ import java.util.concurrent.CountDownLatch;
 
 /**
  * @author listening
- * @description Sample01:
+ * @description Sample01_JustConn:
  * @create 2017 04 13 18:21.
  */
-public class Sample01 implements Watcher {
+public class Sample01_JustConn implements Watcher {
     private static CountDownLatch connectedSemaphore = new CountDownLatch(1);
 
     public static void main(String[] args) throws IOException {
-        ZooKeeper zk = new ZooKeeper("127.0.0.1:2181", 5000, new Sample01());
+        ZooKeeper zk = new ZooKeeper("127.0.0.1:2181", 5000, new Sample01_JustConn());
         System.out.println(zk.getState());
         try {
             connectedSemaphore.await();

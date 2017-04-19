@@ -9,15 +9,15 @@ import java.util.concurrent.CountDownLatch;
 
 /**
  * @author listening
- * @description Sample02:
+ * @description Sample02_UseSessionPwd:
  * @create 2017 04 13 18:38.
  */
-public class Sample02 implements Watcher {
+public class Sample02_UseSessionPwd implements Watcher {
     private static CountDownLatch connectedSemaphore = new CountDownLatch(1);
 
     public static void main(String[] args) throws IOException {
         String connect = "127.0.0.1:2181";
-        ZooKeeper zk = new ZooKeeper(connect, 5000, new Sample02());
+        ZooKeeper zk = new ZooKeeper(connect, 5000, new Sample02_UseSessionPwd());
         System.out.println(zk.getState());
         try {
             connectedSemaphore.await();
@@ -25,9 +25,9 @@ public class Sample02 implements Watcher {
             byte[] pwd = zk.getSessionPasswd();
             System.out.println("sessionId: " + sessionId + ", pwd: " + pwd);
 
-            zk = new ZooKeeper(connect, 5000, new Sample02(), 1L, "test".getBytes());
+            zk = new ZooKeeper(connect, 5000, new Sample02_UseSessionPwd(), 1L, "test".getBytes());
 
-            zk = new ZooKeeper(connect, 5000, new Sample02(), sessionId, pwd);
+            zk = new ZooKeeper(connect, 5000, new Sample02_UseSessionPwd(), sessionId, pwd);
 
             Thread.sleep(10000);
         } catch (InterruptedException e) {
