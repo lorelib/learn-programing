@@ -9,13 +9,13 @@ import java.util.concurrent.CountDownLatch;
 /**
  * Created by listening on 2017/4/22.
  */
-public class Sample07_AsyncGetChildren implements Watcher {
+public class Sample07_SyncGetChildren implements Watcher {
     private static CountDownLatch connectedSemaphore = new CountDownLatch(1);
     private static ZooKeeper zooKeeper;
 
     public static void main(String[] args) throws IOException, InterruptedException, KeeperException {
         zooKeeper = new ZooKeeper("127.0.0.1:2181", 5000,
-                new Sample07_AsyncGetChildren());
+                new Sample07_SyncGetChildren());
         connectedSemaphore.await();
         String path = "/zk-book";
         zooKeeper.create(path, "".getBytes(),
