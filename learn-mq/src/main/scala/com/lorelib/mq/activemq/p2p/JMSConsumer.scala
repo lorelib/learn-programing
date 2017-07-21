@@ -2,10 +2,11 @@ package com.lorelib.mq.activemq.p2p
 
 import javax.jms._
 
+import com.lorelib.mq.activemq.ActiveMQConfig
 import org.apache.activemq.ActiveMQConnectionFactory
 
 /**
-  * @description JMSConsumer: 
+  * @description JMSConsumer: 消费者
   * @author listening
   * @create 2017 07 21 下午3:51.
   */

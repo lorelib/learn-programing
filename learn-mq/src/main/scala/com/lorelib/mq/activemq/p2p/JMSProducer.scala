@@ -2,6 +2,7 @@ package com.lorelib.mq.activemq.p2p
 
 import javax.jms._
 
+import com.lorelib.mq.activemq.ActiveMQConfig
 import org.apache.activemq.ActiveMQConnectionFactory
 
 /**

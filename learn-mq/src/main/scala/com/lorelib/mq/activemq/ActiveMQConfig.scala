@@ -1,4 +1,4 @@
-package com.lorelib.mq.activemq.p2p
+package com.lorelib.mq.activemq
 
 import org.apache.activemq.ActiveMQConnection
 
