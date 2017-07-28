@@ -6,12 +6,12 @@ import com.lorelib.mq.activemq.ActiveMQConfig
 import org.apache.activemq.ActiveMQConnectionFactory
 
 /**
-  * @description JMSConsumer: 消费者
+  * @description JMSConsumer2: 消费者，事件通知
   * @author listening
   * @create 2017 07 21 下午3:51.
   */
 
-object JMSConsumer extends ActiveMQConfig {
+object JMSConsumer2 extends ActiveMQConfig {
   def main(args: Array[String]): Unit = {
     // 实例化连接工厂
     val connectionFactory: ConnectionFactory = new ActiveMQConnectionFactory(USERNAME, PASSWORD, BROKEURL)
@@ -26,11 +26,15 @@ object JMSConsumer extends ActiveMQConfig {
     // 创建消费者
     val consumer: MessageConsumer = session.createConsumer(destination)
 
-    while (true) {
-      val msg: TextMessage = consumer.receive(1000000).asInstanceOf[TextMessage]
-      if (msg != null) {
-        println("收到消息：" + msg.getText)
+    consumer.setMessageListener(new MessageListener {
+      override def onMessage(message: Message): Unit = {
+        val msg: TextMessage = message.asInstanceOf[TextMessage]
+        if (msg != null) {
+          println("收到消息：" + msg.getText)
+        }
       }
-    }
+    })
+
+    Thread.sleep(10000)
   }
 }
