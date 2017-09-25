@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    type: @datasource.type@
+    driver-class-name: @jdbc.driver@
+    url: @jdbc.url@
+    username: @jdbc.username@
+    password: @jdbc.password@
+mybatis:
+  type-aliases-package: com.lorelib.mycat.entity
+  mapper-locations: classpath*:mappers/*.xml
