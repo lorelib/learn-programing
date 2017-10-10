@@ -9,4 +9,5 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
  * @since 1.1
  */
 public interface UserMapper extends BaseMapper<User> {
+    int updateTest(User user);
 }

@@ -55,4 +55,12 @@ public class TestApp {
         );
         System.out.println("size = " + userList.size());
     }
+
+    @Test
+    public void testUpdateTest() {
+        User user = userMapper.selectById(1);
+        user.setName("TomUpdate");
+        int result = userMapper.updateTest(user);
+        Assert.assertEquals(1, result);
+    }
 }
