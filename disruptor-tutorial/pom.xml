@@ -41,7 +41,7 @@
         <project.jdk.version>1.7</project.jdk.version>
         <disruptor.version>3.3.6</disruptor.version>
         <slf4j.version>1.7.12</slf4j.version>
-        <logback.version>1.1.3</logback.version>
+        <logback.version>1.2.0</logback.version>
         <commons-lang3.version>3.4</commons-lang3.version>
         <junit.version>4.12</junit.version>
     </properties>
